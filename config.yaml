@@ -1,0 +1,36 @@
+system:
+  seed: 42
+  device: "cuda"
+  student_id: "610301189"
+
+data:
+  dataset_path: "/content/cartoonset100k"
+  index_file: "dataset_index.csv"
+  image_size: 64
+  batch_size: 64
+  num_workers: 2
+  subsec_count: 2            # set to 10 for full dataset
+  scan_limit_per_folder: 500 # set to 10000 for full indexing
+  attributes: ["eye_angle", "chin_length", "eyebrow_shape", "eyebrow_thickness", "face_shape", "hair", "face_color", "hair_color", "glasses"]
+
+gan:
+  latent_dim: 100
+  feature_maps: 64
+  lr_g: 0.0002
+  lr_d: 0.0002
+  beta1: 0.5
+  epochs: 10
+  label_smoothing: 0.9
+
+rl:
+  lr_agent: 0.001
+  gamma: 0.99
+  rl_epochs: 10
+  alpha_quality: 1.0
+  alpha_meta: 2.0
+
+eval:
+  fid_real_batches: 10
+  fid_fake_batches: 10
+  lpips_pairs: 200
+  generate_count: 2000
