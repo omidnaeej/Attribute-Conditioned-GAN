@@ -47,9 +47,9 @@ A GAN-based framework for attribute-conditioned cartoon face generation using me
 - Train **Generator** to fool the Discriminator.
 - Train **Attribute Classifier** in parallel using cross-entropy over all attribute heads.
 - Saved checkpoints:
-  - `generator_pretrained.pth`
-  - `discriminator_frozen.pth`
-  - `classifier_frozen.pth`
+  - `model_artifacts/generator_pretrained.pth`
+  - `model_artifacts/discriminator_frozen.pth`
+  - `model_artifacts/classifier_frozen.pth`
 
 #### Stage 2: RL agent training (G / D / C frozen)
 - Freeze Generator, Discriminator, and Attribute Classifier.
@@ -64,7 +64,7 @@ A GAN-based framework for attribute-conditioned cartoon face generation using me
 - Optimize the agent using a weighted combination of:
   - negative quality reward  
   - metadata classification loss
-- Save trained agent as `agent_final.pth`.
+- Save trained agent as `model_artifacts/agent_final.pth`.
 
 ### Evaluation and outputs
 - **FID**:
